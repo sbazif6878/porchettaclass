@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+		img{
+			height: 200px;
+			border-color:coral;
+			box-shadow: black 3px 3px 3px}
+		</style>
+		<script>
+		var build = "";
+		var images = ["http://brakkee.org/site/wp-content/uploads/2010/07/dukelogo.png", "http://www.livefirelabs.com/images/learn-python-programming.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2000px-HTML5_logo_and_wordmark.svg.png","https://cdn.worldvectorlogo.com/logos/css-3.svg", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Javascript-shield.png","https://getbootstrap.com/assets/img/bootstrap-stack.png","http://www.phpcodify.com/wp-content/uploads/2017/10/jQuery-Disable-Button%E2%80%8A-%E2%80%8ADisabling-and-Enabling-Buttons-with-jQuery.png","http://www.arxan.com/wp-content/uploads/2016/07/api-protection-1.jpg","https://chatsdk.co/wp-content/uploads/2016/09/firebase_logo_shot.png"];
+		
+		for(var index=0; index<images.length; index+=1){
+			build+= "<img src="+ images[index]+">";
+			}
+		document.write(build);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

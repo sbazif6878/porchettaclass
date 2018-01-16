@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+			var failedStat = 0;
+			var guess;
+			var secretNum =Math.floor(Math.random()*(10+1))
+			while(secretNum != guess){
+				guess = parseFloat(prompt("Ente a number from 0 to 10"));
+			}
+			if(secretNum != guess){
+				alert("out of range");}
+			if(secretNum > guess){
+				alert("too low");}
+			if(secretNum < guess){
+				alert("too high");}
+			failedStat++;
+			alert("you got it.... in " + failedStat +  "tries");
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html> 
+ 

@@ -1,0 +1,16 @@
+<body>
+<input id = “fName” Type = “text” placeholder = “Enter first name”>	        **NO close tag**
+<Button onClick = “greetings()”>Greetings</Button>
+<div id= “Hey” > Output </div>
+</body>
+
+
+<script>
+	function greetings() {
+	var fName = document.getElementById(“fName”);
+	var name = fName.value;
+var hey = document.getElementById(“Hey”)
+Hey.innerHTML = “HEYYY” + name
+}
+</script>
+

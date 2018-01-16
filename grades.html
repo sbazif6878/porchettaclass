@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<script>
+	var grades=[100,85,100,11,15,85,26];
+	var passingGrades = 0;
+	var failingGrades = 0;
+		for(var index=0; index<grades.length; index+=1){
+			if(grades[index]<65){
+				failingGrades+=1;
+				}
+			if(grades[index]>65){
+				passingGrades+=1;
+				}
+			}	
+			console.log("Passing Grades: "+passingGrades);
+			console.log("Failing Grades: "+failingGrades);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

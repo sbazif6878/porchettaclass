@@ -1,0 +1,45 @@
+<DOCTYPE html>
+	<html>
+		<head>
+		<style>
+		</style>
+		<script>
+			function results(){
+			
+				var grade1 = document.getElementById("grade1");
+				var grade2 = document.getElementById("grade2");
+				var grade3 = document.getElementById("grade3");
+				var results=(parseFloat(grade1.value)+parseFloat(grade2.value)+parseFloat(grade2.value))/3;
+				var build="";
+				build+= "Grade 1: "+grade1.value +"<br>";
+				build+= "Grade 2: "+grade2.value +"<br>";
+				build+= "Grade 3: "+grade3.value +"<br>";
+				build+= "Average: "+results.value +"<br>";
+				
+				if (results >= 90){
+					build+= "Grade is A";
+					}
+				else if (results >= 80){
+					build+= "Grade is B";
+					}
+				else if (results >= 70){
+					build+= "Grade is C";
+					}
+				else  if (results >= 60){
+					build+= "Grade is D";
+					}
+				else {
+					build+= "Grade is F";
+					}
+				output.innerHTML = build;
+			}
+		</script>
+		</head>
+		<body>
+		<input id = "grade1" type="text" placeholder = "Enter grade 1"><br>
+		<input id = "grade2" type="text" placeholder = "Enter grade 2"><br>
+		<input id = "grade3" type="text" placeholder = "Enter grade 3"><br>
+		<button onclick="results()"> Average </button>
+		<div id = "average()"></div>
+		</body>
+	</html>

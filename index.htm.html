@@ -1,0 +1,111 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title> Syed Shop Online</title>
+        <style>
+        img {width:300px}
+            
+        input {width:20px}
+        </style>
+
+        <script>
+            function customerSubtotal(){
+                var quantity1 = document.getElementById("quantity1");
+                var quantity2 = document.getElementById("quantity2");
+                var quantity3 = document.getElementById("quantity3");
+                var quantity4 = document.getElementById("quantity4");
+				var ouput = document.getElementById("output")
+                var rprice1 = 549.99;
+                var rprice2 = 199.99;
+                var rprice3 = 239.99;
+                var rprice4 = 189.99;
+                customerSubtotal = rprice1*parseInt(quantity1.value) + rprice2*parseInt(quantity2.value) + rprice3*parseInt(quantity3.value) + rprice4*parseInt(quantity4.value);
+                var build ="";
+                build += "Item#1: $549.99 Qty: " + quantity1.value + "<br>";
+                build += "Item#2: $199.99 Qty: " + quantity2.value + "<br>";
+                build += "Item#3: $239.99 Qty: " + quantity3.value + "<br>";
+                build += "Item#4: $189.99 Qty: " + quantity4.value + "<br>";
+                build += "-----------------------"+ "<br>";
+                build += "Customer Subtotal: " + customerSubtotal.value;
+                output.innerHTML = build;
+				companySubtotal();
+                }
+            function companySubtotal(){
+                var quantity1 = document.getElementById("quantity1");
+                var quantity2 = document.getElementById("quantity2");
+                var quantity3 = document.getElementById("quantity3");
+                var quantity4 = document.getElementById("quantity4");
+                var wprice1 = 400;
+                var wprice2 = 100;
+                var wprice3 = 200;
+                var wprice4 = 140;
+                var companySubtotal = (wprice1*parseInt(quantity1.value)) + (wprice2*parseInt(quantity2.value)) + (wprice3*parseInt(quantity3.value)) +(wprice4*parseInt(quantity4.value));
+                var build="";
+                build+="------------------------------------------" + "<br>";
+                build+="Whole Sale Item Price 1: " + wprice1 +"Qty: " + quantity1.value + "<br>";
+                build+="Whole Sale Item Price 2: " + wprice2 +"Qty: " + quantity2.value + "<br>";
+                build+="Whole Sale Item Price 3: " + wprice3 +"Qty: " + quantity3.value + "<br>";
+                build+="Whole Sale Item Price 4: " + wprice4 +"Qty: " + quantity4.value + "<br>";
+                build+="---------------------";
+                build+="Company Subtotal: " + companySubtotal + "<br>";
+                output.innerHTML = build;
+                }
+            function companyProfit(){
+                var companyProfit = customerSubtotal - companySubtotal;
+                var build ="";
+                build +="------------------------"+ "<br>";
+                build +="Company Profit: " + companyProfit+ "<br>";
+                build +="------------------------"+ "<br>";
+                output.innerHTML = build; 
+                }
+            function totalItemsSold(){
+                var totalItemsSold = quantity1+quantity2+quantity3+quantity4;
+                var build ="";                                                                       
+                build +="------------------------"+ "<br>";
+                build +="Total Items Sold: " + totalItemsSold+ "<br>";
+                build +="------------------------"+ "<br>";
+                output.innerHTML = build;
+                }
+					
+                   
+        </script>
+    </head>    
+    <body>
+        
+    <div>
+        <h1> Sony - Alpha a5100 <br>
+        Mirrorless Camera </h1>
+        <img src="Sony - Alpha a5100 Mirrorless Camera with 16-50mm Retractable Lens - Black.jpg"><br>
+        <span>$549.99</span>
+        <p>Awesome CAMERA...won't <br>
+        last one hurry.<br>Sony - Alpha a5100 Mirrorless <br>Camera with 16-50mm Retractable <br>Lens - Black</p>
+        Quantity: <input id = "quantity1" type = "text" placeholder = "QTY" >        
+    </div>
+        
+    <div>
+        <h1> Apple TV </h1>
+        <img src="Apple® TV (4th Generation) 32GB.jpg"><br>
+        <span>$199.99</span>
+        <p>Last one<br>
+        better hurry.<br>4th Generation <br>32GB</p>
+        Quantity: <input id = "quantity2" type = "text" placeholder = "QTY" >        
+    </div>
+        
+    <div>
+        <h1> HP 22-b016 All-in-One Desktop PC  </h1>
+        <img src="HP 22-b016 All-in-One Desktop PC (Intel Pentium Processor, 4GB RAM Memory, 1TB Hard Drive), White.jpg"><br>
+        <span>$239.99</span>
+        <p>(Intel Pentium Processor,<br> 4GB RAM Memory, <br>1TB Hard Drive), <br>White.</p>
+        Quantity: <input id = "quantity3" type = "text" placeholder = "QTY" >        
+    </div>
+    <div>
+        <h1> Epson Expression Home XP-340 Printer </h1>
+        <img src="Epson Expression Home XP-340 Wireless Small-In-One Printer.jpg"><br>
+        <span>$189.99</span>
+        <p>Wireless,<br> 4GB RAM Memory, <br> Small-In-One, <br>Black</p>
+        Quantity: <input id = "quantity4" type = "text" placeholder = "QTY" >
+    </div>
+    <button onclick="customerSubtotal()"> Customer Subtotal </button>
+    <div id = "output"></div>
+    </body>
+</html>

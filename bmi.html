@@ -1,0 +1,32 @@
+<DOCTYPE html>
+	<html>
+		<head>
+		<style>
+		</style>
+		<script>
+			function bmi(){
+				var weight = document.getElementById("weight");
+				var height = document.getElementById("height"):
+				var output = document.getElementById("output")
+				var bmi=parseFloat(weight.value)/Math.pow(parseFloat(height.value),2);
+				var build="";
+				build+= "Weight: "+weight.value +"<br>";
+				build+= "Height: "+height.value +"<br>";
+				build+= "BMI   : "+bmi.value +"<br>";
+				if (bmi >= 25){
+				build+= "Overweight";
+				}
+				else{
+					build+= "Normal weight";
+				}
+				output.innerHTML = build;
+			}
+		</script>
+		</head>
+		<body>
+		<input id = "weight" type="text" placeholder = "Enter weight"><br>
+		<input id = "height" type+"text" placeholder = "Enter height"><br>
+		<button onclick="bmi()"> BMI </button>
+		<div id = "total()"></div>
+		</body>
+	</html>

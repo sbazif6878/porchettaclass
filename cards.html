@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			a{
+				background-color:blue;
+				color:white;
+				padding:5px;
+				margin:8px;
+				box-shadow:black 3px 3px 3px;
+				border-radius:10px;
+				display:incline-block;
+				}
+			a:hover{
+				background-color:orange;
+				color:black;
+				}
+		</style>
+		<script>
+		var build = "";
+		var href = ["http://www.baysidehighschool.org/","http://schools.nyc.gov/default.htm","https://www.tutorialspoint.com/javascript/","http://baysidehs.net/CTE","http://codingbat.com/java","https://www.wikipedia.org/"];
+		for(var index=0; index<href.length; index+=1){
+			
+			build+= "<a href="+ href[index]+">"+href[index]+"</a>";
+			build+="<br>"+"<br>";
+			}
+		document.write(build);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

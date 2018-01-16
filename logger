@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<script>
+	var users=["eporchetta- 1234", "rcastro-2323", "rweasily-7521"];
+	var authorized = false;
+	var attempts = 0;
+	while(!authorized && attempts < 3){
+		var userName = prompt("Enter a username");
+		var passwd = prompt("Enter your password"); 
+		var bpos = 0, epos=0;
+		var acct, pwd;
+		for(var index=0; index<users.length; index+=1){
+			var user = users[index].substring(0,users[index].indexOf("-"));
+			bpos=0;
+			epos = users[index].indexOf("-");
+			acct= users[index].substring(bpos,epos);
+			bpos = epos+1;
+			epos = users[index].length;
+			pwd = users[index].substring(bpos,epos);
+			if(userName ==acct && passwd){
+			authorized= true;
+			}
+		}
+	
+	}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<DOCTYPE html>
+	<html>
+		<head>
+		<style>
+		</style>
+		
+		<script>
+		function GradeAvg(g1,g2,g3) {
+		var g1;
+		g1 = parseFloat(prompt("Enter grade 1"));
+		var g2;
+		g2 = parseFloat(prompt("Enter grade 2"));
+		var g3;
+		g3 = parseFloat(prompt("Enter grade 3"));
+		var average = (g1+g2+g3)/3
+		var build = " ";
+		build += "Grade 1: " + g1 + "\n";
+		build += "Grade 2: " + g2 + "\n";
+		build += "Grade 3: " + g3 + "\n";
+		build += "....................." + "\n";
+		build += "Average: " + average + "\n";
+		return build
+		}
+		</script>
+		
+		<script>
+		//Main Program
+		var message = GradeAvg();
+		alert(message);
+		console.log(message);
+		</script>
+		
+		

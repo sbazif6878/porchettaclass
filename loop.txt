@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+			var input = 0;
+			
+			while( input <=20 && input >=20 ){
+				input = prompt("Guess ");
+				console.log(input);	
+			}            
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html> 

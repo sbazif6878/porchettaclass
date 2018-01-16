@@ -1,0 +1,26 @@
+<DOCTYPE html>
+	<html>
+		<head>
+		
+			<style>
+			</style>
+		
+			<script>
+				function equation(){
+					var grade1 = document.getElementById(“grade1”);
+					var grade2 = document.getElementById(“grade2”);
+					var grade3 = document.getElementById(“grade3”);
+					var output = document.getElementById(“average”);
+					var average = (parseFloat(garde1.value) + (parseFloat(garde2.value) + (parseFloat(garde3.value))/3;
+					output.innerHTML = "Average: " + average;
+				}	
+			</script>
+		</head>
+		<body>
+			<input id = “grade1” type = “text”  placeholder = “Enter grade 1” >
+			<input id = “grade2” type = “text”  placeholder = “Enter grade 2” >
+			<input id = “grade3” type = “text”  placeholder = “Enter grade 3” >
+			<button onClick = "equation()"> Calculate </button>
+			<div id = "average ()"> </div>
+		</body>
+	</html>

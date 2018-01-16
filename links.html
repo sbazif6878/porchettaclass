@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			a{
+				background-color:blue;
+				color:white;
+				padding:5px;
+				margin:8px;
+				box-shadow:black 3px 3px 3px;
+				border-radius:10px;
+				display:incline-block;
+				}
+			a:hover{
+				background-color:orange;
+				color:black;
+				}
+		</style>
+		<script>
+		var build = "";
+		var names = [];
+		var photos = [];
+		var phones = [];
+		for(var index=0; index<names.length; index+=1){
+			build+="<div>";
+			build+= "	<h1>"+ names[index]+"</h1>"+"<br>";
+			build+="	<img src="+photos[index]+">";
+			build+="	<p>"+phone[index]+"</p>";
+			build+="</div>";
+			}
+		document.write(build);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

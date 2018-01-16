@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+		<head>
+			<style>
+			#login{
+				background-color: yellow;
+				width:200px;
+				padding:20px;
+				margin:20px auto;
+				border-radius:20px;
+				box-shadow:black 10px 10px 10px 10px;
+				}
+			</style>
+			<script>
+				var failedStat = 0;
+				function login(){
+					var user = document.getElementById("username"); //input
+					var pwd = document.getElementById("password"); //input
+					var output = document.getElementById("output") //output
+					if(failedStat >= 3 ){//1
+						output.innerHTML = "You are locked out because you fail attempts exceeds "+failedStat;
+						}
+					else if(user.value == "abcd" && pwd.value == "1234"){//2
+						output.innerHTML = "Welcome";
+						failedStat=0;
+						}
+					else if(user.value != "abcd" && pwd.value != "1234"){//3
+						output.innerHTML = "Username and password is incorrect";
+						failedStat++;
+						}
+					else if(pwd.value != "1234"){//4
+						output.innerHTML = "password is invalid";
+						failedStat++;
+						}
+					else{
+						output.innerHTML = "Username IS invalid";//5
+						failedStat++;
+						}
+					}
+			</script>
+		</head>
+		
+		<body>
+		<div id="login">
+			<input type="text" id="username" placeholder="username"><br>
+			<input type="password" id="password" placeholder="password"><br>
+			<button onClick="login()">Login </button>
+			<div id = "output"></div>
+		</div>
+		</body>
+</html>

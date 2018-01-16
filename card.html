@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			h1{
+				
+				}
+			img{
+				background-color:blue;
+				color:white;
+				padding:5px;
+				margin:8px;
+				box-shadow:black 3px 3px 3px;
+				border-radius:10px;
+				display:incline-block;
+				length: 450px;
+				width: 450px;
+				}
+			img:hover{
+				background-color:orange;
+				color:black;
+				}
+		</style>
+		<script>
+		var build = "";
+		var names = ["John","Rock","Elizabeth"];
+		var photos = ["https://static.pexels.com/photos/91227/pexels-photo-91227.jpeg","https://www.timeinc.com/wp-content/uploads/2014/04/people_hero_1250x703.jpg","http://i.telegraph.co.uk/multimedia/archive/03042/shrug_3042019b.jpg"];
+		var phones = ["347-545-8589","216-989-7627","372-162-8954"];
+		for(var index=0; index<names.length; index+=1){
+			build+="<div>";
+			build+="	<h1>"+ names[index]+"</h1>"+"<br>";
+			build+="	<img src="+photos[index]+">";
+			build+="	<p>"+phones[index]+"</p>";
+			build+="</div>";
+			}
+		document.write(build);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html> 
+<html>
+    <head>
+
+        <script>
+            var attempts = 0;
+            function login(){
+                var u = document.getElementById("userName");
+                var p = document.getElementById("password");
+                var output = document.getElementById("output");
+				
+                if(attempts <= 3){
+                    output.innerHTML = "You have attempted " + attempts + " times. Access Denied";
+                }
+				else if(u.value == "admin" || p.value == "1234"){
+                    output.innerHTML = "Welcome";
+					attempts = 0;
+                }
+				else if(u.value != "admin" && p.value != "1234"){
+                    output.innerHTML = "Wrong Username and Password";
+                    attempts++;
+                }
+				else if(u.value == "admin" && p.value != "1234"){
+                    output.innerHTML = "Wrong Password";
+                    attempts++;
+                }
+				else{
+                    output.innerHTML = "Wrong Username";
+                    attempts++;
+                }
+            }
+        </script>
+    </head>
+    <body>
+		<div id="login">
+			<input id = "username" type = "text" placeholder = "Enter Username"><br>
+			<input id = "password" type = "password" placeholder = "Enter Password"><br>
+			<button onclick = "login();"> Log In </button>
+			<div id= "output"></div>
+		</div>
+    </body>
+</html>

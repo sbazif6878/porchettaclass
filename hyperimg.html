@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			h1{
+				
+				}
+			img{
+				background-color:blue;
+				color:white;
+				padding:5px;
+				margin:8px;
+				box-shadow:black 3px 3px 3px;
+				border-radius:10px;
+				display:incline-block;
+				length: 450px;
+				width: 450px;
+				}
+			img:hover{
+				-webkit-transform: scaleX(-1);
+				transform: scaleX(-1);
+				background-color:orange;
+				color:black;
+				}
+		</style>
+		<script>
+		var build = "";
+		var logo = ["http://brakkee.org/site/wp-content/uploads/2010/07/dukelogo.png", "http://www.livefirelabs.com/images/learn-python-programming.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2000px-HTML5_logo_and_wordmark.svg.png","https://cdn.worldvectorlogo.com/logos/css-3.svg", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Javascript-shield.png"];
+		var title = ["Java","Python","HTML","CSS","JavaScript"];
+		var website = ["https://java.com/en/download/","https://www.python.org/","https://www.w3schools.com/html/","https://www.w3schools.com/css/","https://www.javascript.com/"];
+		for(var index=0; index<title.length; index+=1){
+			
+			build+="<div>";
+			build+="	<h1>"+ title[index]+"</h1>"+"<br>";
+			build+="	<a href="+ website[index]+"><img src="+logo[index]+"><br></a>";
+			build+="</div>";
+			}
+		document.write(build);
+		</script>
+	</head>
+	<body>

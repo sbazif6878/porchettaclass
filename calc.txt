@@ -1,0 +1,16 @@
+<body> 
+
+	<input id = “number”  type = “text”  placeholder = “enter a number” >
+	<button  onclick = “calcSqr()”> Calculate </button>
+	<div id = “results”>  </div>
+<script>
+	function calcSqr() {
+		var number = document.getElementById(“number”);
+		var results = document.getElementById(“results”);
+		var sqr = math.pow(parseFloat(number.value),2);
+		results.innerHTML = “The Square is “ + sqr;
+}
+
+
+</script>
+</body>

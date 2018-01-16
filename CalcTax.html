@@ -1,0 +1,28 @@
+<DOCTYPE html>
+	<html>
+		<head>
+		
+			<style>
+			</style>
+		
+			<script>
+				function bill(){
+					var subtotal = document.getElementById("subtotal");
+					var total = document.getElementById("total");
+					var tax = parseFloat(subtotal.value) * 0.0875;
+					var totalAmt = tax + subtotal;
+					var build="";
+					build+= "Subtotal: " + subtotal.value + "<br>";
+					build+= "Tax     : " + tax.toFixed(2) + "<br>";
+					build+= "Total   : " + totalAmt.toFixed(2) + "<br>"
+					
+					total.innerHTML = build;
+				}	
+			</script>
+		</head>
+		<body>
+			<input id = "subtotal" type = "text"  placeholder = "Enter subtotal" > <br>
+			<button onclick="bill()"> Bill </button>
+			<div id ="total()"></div>
+		</body>
+	</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<script>
+			function createAccount(){
+				var fname=document.getElementById("first");
+				var lname=document.getElementById("last");
+				var email=document.getElementById("email");
+				var pos = 0;
+				var build = "";
+				if(fname.value.length == 0){
+					build += "First name required" +"<br>";
+					}
+				if(lname.value.length == 0){
+					build += "Last name required" +"<br>";
+					}
+				if(email.value.length == 0){
+					build += "Email required" +"<br>";
+					}					
+				if(email.value.indexOf("@") == -1){
+					build += "Invalid email" + "<br>";
+					}
+				if(build.lenth==0 ){
+					build+=fname.value.substring(0,1);
+					build+=lname.value.substring(0,4);
+					pos = email.value.indexOf("@");
+					build+= email.value.substring(pos,email.value.lenth);
+					}
+				output.innerHTML = build;
+				}
+		</script>
+	</head>
+	<body>
+		<div id="createAccount">
+		<input id = "first" type = "text" placeholder = "Enter First Name"><br>
+		<input id = "last" type = "text" placeholder = "Enter Last Name"><br>
+		<input id = "email" type = "text" placeholder = "Enter Email"><br>
+		<button onclick = "createAccount();"> Create </button>
+		<div id= "output"></div>
+		</div>
+	</body>
+</html>

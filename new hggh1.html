@@ -1,0 +1,39 @@
+<DOCTYPE html>
+	<html>
+		<head>
+			<style>
+			</style>
+		
+			<script>
+				function force(mass,acceleration) {
+					var force;
+					force = mass*acceleration;
+					var build = "";
+					build += "Mass:         " + mass + "\n";
+					build += "Acceleration: " + acceleration + "\n";
+					build += "....................." + "\n";
+					build += "Force:        " + force + "\n";
+					return build
+					};
+			</script>
+			<script>
+	
+			</script>
+		
+			<script>
+				//Main Program
+				var mass;
+				mass = parseFloat(prompt("Enter mass"));
+				var acceleration;
+				acceleration = parseFloat(prompt("Enter acceleration"));
+				var message = force(mass,acceleration);
+				alert(message);
+			</script>
+
+			</head>	
+			<body>
+			</body>
+		</head>
+	</html>
+	
+	

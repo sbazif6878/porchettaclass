@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			img{
+				background-color:blue;
+				color:white;
+				padding:5px;
+				margin:8px;
+				box-shadow:black 3px 3px 3px;
+				border-radius:10px;
+				display:incline-block;
+				length: 50px;
+				width: 50px;
+				}
+			img:hover{
+				transition: width 2s;
+				-webkit-transform: scaleX(-1);
+				transform: scaleX(-1);
+				background-color:orange;
+				color:black;
+				}
+
+		</style>
+		<script>
+		var build = "";
+		var names = ["Porchetta,Ernesto", "Castro,Renne"];
+		
+			for(var index=0; index<names.length; index+=1){			
+				build+="Username:"+names[index].substring(names.indexO,1)+names[index].substring(names[index].indexOf(",")+1,names[index].length)+Math.floor(100+Math.random()*999+1)+"<br>";
+				
+				}
+		document.write(build);
+		</script>
+	</head>
+	<body>
