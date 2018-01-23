@@ -2,35 +2,25 @@
 <html>
 	<head>
 		<style>
-			img{
-				background-color:blue;
-				color:white;
-				padding:5px;
-				margin:8px;
-				box-shadow:black 3px 3px 3px;
-				border-radius:10px;
-				display:incline-block;
-				length: 50px;
-				width: 50px;
-				}
-			img:hover{
-				transition: width 2s;
-				-webkit-transform: scaleX(-1);
-				transform: scaleX(-1);
-				background-color:orange;
-				color:black;
-				}
-
 		</style>
-		<script>
-		var build = "";
-		var names = ["Porchetta,Ernesto", "Castro,Renne"];
-		
-			for(var index=0; index<names.length; index+=1){			
-				build+="Username:"+names[index].substring(names.indexO,1)+names[index].substring(names[index].indexOf(",")+1,names[index].length)+Math.floor(100+Math.random()*999+1)+"<br>";
-				
+		<script>	
+			var students = [
+				{"first":"Bob", "last":"Dylan","id":"123456789"},
+				{"first":"Alice", "last":"Cooper","id":"987654321"}
+				]
+			var build = "";
+			for (var index = 0; index < students.length; index++){
+				build += students[index].first.substring(0, students[index].first.length);
+				build += " ";
+				build += students[index].last.substring(0, students[index].last.length);
+				build += " (";
+				build += students[index].id.substring(0, students[index].id.length);
+				build += ")"
+				build += "<br>";
 				}
-		document.write(build);
+			document.write(build);
 		</script>
 	</head>
 	<body>
+	</body>
+</html>
