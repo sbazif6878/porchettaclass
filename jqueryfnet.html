@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			div {
+				length: 450px;
+				width: 450px;
+				background-color:yellow;
+				margin:8px;
+				
+				}
+			img{
+				background-color:blue;
+				color:white;
+				padding:5px;
+				margin:8px;
+				box-shadow:black 4px 4px 4px;
+				border-radius:10px;
+				display:incline-block;
+				length: 225px;
+				width: 225px;
+				}
+			img:hover{
+				transition: width 30s;
+				transition: length 30s;
+				transition: height 30s;
+				-webkit-transform: scaleX(-1);
+				transform: scaleX(-1);
+				background-color:orange;
+				color:black;
+				}		
+		</style>
+		
+		<script>
+		// src is our file to import JQuery
+		</script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">		
+		</script>
+		
+		<script>		
+			$.getJSON(" https://api.themoviedb.org/3/search/movie?api_key=88892ad80656f3a2257a48524e58c860&query=batman", function(data){
+				console.log(data);
+				console.log(data.results[0].overview);
+				var build = "";
+				for(var index = 0; index < data.results.length; index += 1){
+					build+="<div>";
+					build+="	<h1>" + data.results[index].title + "</h1><br>";
+					build+="<img src= "+ "https://image.tmdb.org/t/p/w185_and_h278_bestv2/"+ data.results[index].poster_path +"><br>";
+					build+="	<h3>" + data.results[index].release_date + "</h3><br>";
+					build+="	<h3>" + data.results[index].overview + "</h3>";
+					//build+="	<i><marquee>" + data.results[index].overview + "</marquee></i>";
+					build+="</div>";
+					}
+					document.write(build);
+			});
+		</script>
+	</head>
+	<body>
+	<div id="output">
+	</div>
+	</body>
+</html>
