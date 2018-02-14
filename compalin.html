@@ -1,0 +1,56 @@
+<html>
+<style>
+	.card{
+		left:float;
+		width:50px;
+		height:100px;
+		padding:10px;
+		margin:10px;
+		/* display:inline-block; */
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+	h1{
+		font-family:"Arial";
+		text-shadow:gray 2px 2px 2px;
+	}
+	p{
+		font-size:14pt;
+		font-family:"Arial";
+		height:100px;
+		overflow-y:scroll;
+	}
+	img{
+		width:50%;
+		margin:5px;
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function search(){	
+		$.getJSON("https://data.cityofnewyork.us/resource/fhrw-4uyv.json",function(data){									
+			buildOutput(data);
+		});
+	}
+	function buildOutput(data){
+		var build = "";
+		var output = document.getElementById("output")
+			for(var index = 0; index < data.length; index++){
+				build += "<div class='card'>"
+				build += "<h1> Complain: " + data[index].complaint_type + "</h1>"
+				build += "<p>To:" + data[index].agency_name+"("+data[index].agency +")" + "</p><br>"
+				build += "<p>Date:" + data[index].due_date + "</p><br>"
+				build += "</div>"
+				}	
+		output.innerHTML = build;
+		}
+</script>
+<body onload="search()">
+	<div id="output"></div>
+</body>
+
+
+</html>

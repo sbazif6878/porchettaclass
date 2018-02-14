@@ -1,0 +1,59 @@
+<html>
+<style>
+<style>
+	.card{
+		left:float;
+		width:50px;
+		height:100px;
+		padding:10px;
+		margin:10px;
+		/* display:inline-block; */
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+	h1{
+		font-family:"Arial";
+		text-shadow:gray 2px 2px 2px;
+	}
+	p{
+		font-size:14pt;
+		font-family:"Arial";
+		height:100px;
+		overflow-y:scroll;
+	}
+	img{
+		width:50%;
+		margin:5px;
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function search(){
+		var movie = document.getElementById("movie")		
+		$.getJSON("https://api.themoviedb.org/3/search/movie?api_key=88892ad80656f3a2257a48524e58c860&query=" + movie.value,function(data){									
+			buildOutput(data);-
+		})
+	}
+	function buildOutput(data){
+		var build = "";
+		var output = document.getElementById("output")
+			for(var index = 0; index < data.results.length; index++){
+				build += "<div class='card'>"
+				build += "<h1>" + data.results[index].title + "</h1>"
+				build += "<img src=https://image.tmdb.org/t/p/w185/" + data.results[index].poster_path + ">"
+				build += "<p>" + data.results[index].overview + "</p>"
+				build += "</div>"
+				}	
+		output.innerHTML = build;
+		}
+</script
+<body>
+	<input type="text" id="movie" placeholder="Enter Movie">
+	<button onclick="search()">Search</button>
+	<div id="output"></div>
+</body>
+
+</html>
