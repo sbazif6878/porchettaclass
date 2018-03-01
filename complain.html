@@ -1,0 +1,83 @@
+<html>
+<style>
+	.card{
+		width:300px;
+
+		padding:10px;
+		margin:10px;
+		display:inline-block;
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+	h1{
+		font-family:"Arial";
+		text-shadow:gray 2px 2px 2px;
+	}
+	p,a{
+		font-size:14pt;
+		font-family:"Arial";
+	}
+	img{
+		width:90%;
+		margin:5px;
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+	a{
+		background-color:blue;
+		text-decoration:none;
+		color:white;
+		font-weight:bold;
+		padding:5px;
+		border-radius:10px;
+		box-shadow:black 5px 5px 5px;
+	}
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script type="text/template" id="complaintTemplate">
+	<div class='card'>
+		<h1>{{complaint_type}}</h1>
+		<p>{{created_date}}<hr>
+		<p>{{descriptor}}</p><hr>
+		<p>{{latitude longitude}}</p>
+	</div>
+</script>
+<script>
+	function loadJSON(){				
+		$.getJSON("https://data.cityofnewyork.us/resource/fhrw-4uyv.json",function(results){
+		data = results;
+		})
+	}
+	
+	function search(){
+		var build = "";
+		
+		var cardTemplate=document.getElementById("complaintTemplate").innerHTML;
+		var output = document.getElementById("output");
+		var complaint = document.getElementById("complaint");
+		
+		for(var index = 0; index < data.length; index++){
+		if(data[index].complaint_type.toUpperCase().indexOf(complaint.value.toUpperCase()) != -1){
+			build += Mustache.render(cardTemplate, data[index]);
+		}	
+		//console.log(complaint_types);
+		output.innerHTML = build;	
+		}
+	}
+	/*
+		if(!complaint_types.includes(data[index].complaint_type)){
+			complaint_types.push(data[index].complaint_type);
+		}
+	*/
+</script>
+<body onload="loadJSON()">
+	<input type="text" id="complaint" placeholder="Complaint">
+	<button onClick="search()">Search</button>
+	<div id="output">
+		
+	</div>
+</body> 
+</html>
