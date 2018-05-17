@@ -1,0 +1,49 @@
+<html>
+
+	<head>
+	
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js">
+	</script>
+	
+	<script>
+		// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyDaVY1plse_Qq0RIxEyNId16LsyeL2JtXE",
+				authDomain: "tictactoe-b31a8.firebaseapp.com",
+				databaseURL: "https://tictactoe-b31a8.firebaseio.com",
+				projectId: "tictactoe-b31a8",
+				storageBucket: "tictactoe-b31a8.appspot.com",
+				messagingSenderId: "1092065758140"
+				};
+				firebase.initializeApp(config);
+	</script>
+	<script>
+		var x = document.getElementById("x").value;
+		var o = document.getElementById("o").value;
+		function register(){
+			database.child("data").push(
+					{
+						"x":x,
+						"o":o
+					}
+			)
+		}
+        database.child("data").on('value',function(snapshot){
+            data = snapshot.val();
+			build = ""
+            for(var key in data){
+		    	build += "<b> KEY:: </b> " + key + " <br>" ;
+            
+                build += "<b>" + data[key].user + "</b>:" + data[key].msg + "<br>" ;
+
+            }
+			document.getElementById("chatroom").innerHTML = build;
+        })
+	</script>
+	</head>
+	<body>
+	Cube #<input type="text" placeholder="Enter cube" id="user">
+	X or O<input type="text" placeholder="Enter X or O" id="ox">
+	<button onclick="register()">Enter</button>
+	</body>
+</html>

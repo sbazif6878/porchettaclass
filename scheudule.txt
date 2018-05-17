@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<style>
+	
+		</style>
+	<head/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+	<script type="text/template" id="cardTemplate">
+		<div class = "card">
+			<h2>{{OffClass}}</h2>
+			<p>{{Teacher1}}</p>
+			<p>{{StudentID}}</p>
+		</div>
+	</script>
+	<script>
+	var data;
+	function loadJSON(){
+		$.getJSON("https://bhsdata-51353.firebaseio.com/data.json",function(results){
+			data = results;
+			for(var key in data){
+				console.log(data[key].user)
+			}
+		})
+	}
+	function displayData(){
+		var build= "";
+		var output = document.getElementById("output");
+		var template = document.getElementById("cardTemplate").innerHTML
+		for(var key in data){
+			build += Mustache.render(template,data[key]);
+		}
+		output.innerHTML = build;
+	}
+	</script>
+	<body onload="loadJSON()">
+		<button onclick="displayData()">Display</button>
+		<div id="output"></div>
+	</body>
+</html>
+
