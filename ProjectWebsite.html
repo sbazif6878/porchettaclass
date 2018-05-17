@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			textarea{
+				font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				border-radius: 10px;
+				border: none;
+			}
+			h1{
+				font-family: Impact;
+				font-size: 80px;
+				color: #fff;
+				padding: 0 0 0 0;
+			}
+			nav{
+				background: #111;
+				border-color: #111;
+				float: left;
+				margin: 0 0 30px 0;
+				padding: 5px 5px 10px 5px;
+				width: 100%;
+				text-align: center;
+				font-family: monospace;
+				font-size: 40px;
+			}
+			#full_time_part_time_indicator{
+				font-family: monospace;
+				font-size: 20px;
+				padding: 10px 5px 10px 5px;
+			}
+			#job_category{
+				font-family: monospace;
+				font-size: 20px;
+				padding: 10px 5px 10px 5px;
+			}
+			button{
+				font-family: monospace;
+				font-size: 20px;
+				padding: 10px 5px 10px 5px;
+			}
+			#card{
+				width:300px;
+				padding:10px;
+				margin:10px;
+				display:inline-block;
+				border-color: #gray;
+			}
+			h2{
+				font-family:"Arial";
+				font-size: 15px;
+				text-shadow:gray 2px 2px 2px;
+			}
+			p,a{
+				font-size:8pt;
+				font-family:"Arial";
+			}
+			img{
+				width:90%;
+				margin:5px;
+				border-radius:10px;
+				box-shadow:black 5px 5px 5px;
+			}
+			a{
+				background-color:blue;
+				text-decoration:none;
+				color:white;
+				font-weight:bold;
+				padding:5px;
+				border-radius:10px;
+				box-shadow:black 5px 5px 5px;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+		
+		<script type="text/template" id="cardTemplate">
+				<div id = "card">
+					<h2> {{civil_service_title}} </h2>
+					<p> {{posting_data}} <hr>
+					<p> {{job_category}} </p><hr>
+					<p> {{full_time_part_time_indicator}} Time </p>
+					<textarea rows="6" cols="40" readonly> {{job_description}} </textarea>
+				</div>
+		</script>
+		
+		<script>	
+			var data;
+			function loadJSON(){				
+				$.getJSON("https://data.cityofnewyork.us/resource/swhp-yxa4.json",function(results){
+					data=results;
+				})
+				
+			}
+			
+			function search(){
+				var build = "";
+				var time = document.getElementById("full_time_part_time_indicator");
+				var jDescrip = document.getElementById("jDescrip");
+				var card = document.getElementById("card");
+				var job_category = document.getElementById("job_category");
+				var output = document.getElementById("output");
+				var cardTemplate = document.getElementById("cardTemplate").innerHTML;
+				for(var index = 0; index < data.length; index++){
+					//if(data[index].incident_zip == zip.value && data[index].agency_name == agency.value){
+					if(data[index].job_category.toUpperCase() == job_category.value.toUpperCase() && data[index].full_time_part_time_indicator.toUpperCase().indexOf(time.value.toUpperCase() == -1)){
+						build += Mustache.render(cardTemplate, data[index]);
+						}
+					}
+					output.innerHTML = build;	
+					
+				
+			}
+			
+		</script>
+	</head>
+	<body onload="loadJSON()">
+		<nav>
+			<h1>NEW YORK CITY JOBS</h1>
+			<input type="text" id="job_category" placeholder="Enter Job Category">
+			<input type="text" id="full_time_part_time_indicator" placeholder="Full or Part Time">
+			<button onclick="search()">Search</button>
+		</nav>
+		<div id="output"></div>
+	</body>
+</html>
